@@ -1,0 +1,44 @@
+<main class="page-shell">
+  <section class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">Trusted local pest protection</p>
+      <h1>{{ companyName }}</h1>
+      <p class="hero__summary">
+        Professional pest control services for homes and businesses with preventative care,
+        responsive scheduling, and transparent service plans.
+      </p>
+
+      <div class="hero__actions">
+        <a class="button button--primary" href="tel:+15550149000">Call {{ phoneNumber }}</a>
+        <a class="button button--secondary" href="#services">Explore services</a>
+      </div>
+    </div>
+
+    <aside class="hero__panel" aria-label="Company promises">
+      <h2>Why customers choose us</h2>
+      <ul>
+        @for (signal of trustSignals; track signal) {
+          <li>{{ signal }}</li>
+        }
+      </ul>
+    </aside>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="section-heading">
+      <p class="eyebrow">Core offerings</p>
+      <h2 id="services-title">Pest control services built for prevention first</h2>
+    </div>
+
+    <div class="service-grid">
+      @for (service of serviceHighlights; track service.title) {
+        <article class="service-card">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+</main>
+
+<router-outlet />
